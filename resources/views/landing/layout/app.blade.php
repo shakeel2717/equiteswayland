@@ -154,15 +154,11 @@
                                     </div>
                                     <p class="footer-desc">{{ env('APP_DESC') }}</p>
                                     <ul class="footer-contact">
-                                        <li>Whatsapp: <a
+                                        <li>Contact #: <a
                                                 href="tel:{{ env('APP_WHATSAPP') }}">{{ env('APP_WHATSAPP') }}</a>
                                         </li>
                                         <li>Email: <a
                                                 href="mailto:{{ env('APP_MAIL') }}">{{ env('APP_MAIL') }}</a></li>
-                                    </ul>
-                                    <ul class="social-links">
-                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-whatsapp"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -181,9 +177,6 @@
     </div>
     <div id="scrollUp" class="orange-color">
         <i class="fa fa-angle-up"></i>
-    </div>
-    <div id="whatsapp" class="whatsapp" style="z-index: 999">
-        <a href="https://wa.me/{{ env('APP_WHATSAPP') }}" target="_blank"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
     </div>
     <script src="{{ asset('assets/js/modernizr-2.8.3.min.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>

@@ -122,22 +122,6 @@
     <div class="rs-cta style1 secondary-bg2 relative pt-128 pb-128 md-pt-70 md-pb-70">
         <div class="container">
             <div class="row rs-vertical-middle">
-                <div class="col-lg-7">
-                    <div class="sec-title4">
-                        <div class="sub-title secondary-color mb-6">Join our Whatsapp Group</div>
-                        <h2 class="title white-color left-line-v margin-0">
-                            <div class="draw-line start-draw"></div>
-                            Join Whatsapp Official group
-                        </h2>
-                    </div>
-                </div>
-                <div class="col-lg-5 md-pt-30">
-                    <div class="cta-btn text-center text-md-left">
-                        <a class="readon2 hover-light" href="https://chat.whatsapp.com/BXn1uC0WOuxHxWAs0w9vEH"><i
-                                class="fa fa-whatsapp me-2"></i>
-                            Join now <div class="btn-arrow"></div></a>
-                    </div>
-                </div>
             </div>
             <br>
             {{-- <img class="pattern-right" src="{{ asset('assets/images/pattern/pattern5.png') }}" alt="">
