@@ -72,84 +72,64 @@ class clean extends Command
 
         $plan = new Plan();
         $plan->name = 'STATER';
-        $plan->price = '600';
-        $plan->profit = '70';
-        $plan->total = '1260';
-        $plan->duration = '18';
-        $plan->withdraw = '100';
-        $plan->status = 1;
-        $plan->save();
-
-        $plan = new Plan();
-        $plan->name = 'STAR';
-        $plan->price = '1200';
-        $plan->profit = '150';
-        $plan->total = '2700';
-        $plan->duration = '18';
-        $plan->withdraw = '100';
-        $plan->status = 1;
-        $plan->save();
-
-        $plan = new Plan();
-        $plan->name = 'BROSLEE';
-        $plan->price = '3000';
-        $plan->profit = '330';
-        $plan->total = '6600';
+        $plan->price = 10;
+        $plan->profit = 25;
+        $plan->total = '500';
         $plan->duration = '20';
-        $plan->withdraw = '100';
+        $plan->withdraw = '600';
         $plan->status = 1;
         $plan->save();
 
         $plan = new Plan();
-        $plan->name = 'BLUE BIRDS';
-        $plan->price = '6000';
-        $plan->profit = '660';
-        $plan->total = '13200';
+        $plan->name = 'PREMIUM';
+        $plan->price = 20;
+        $plan->profit = 50;
+        $plan->total = '1000';
         $plan->duration = '20';
-        $plan->withdraw = '100';
+        $plan->withdraw = '600';
         $plan->status = 1;
         $plan->save();
 
         $plan = new Plan();
-        $plan->name = 'DRAGON';
-        $plan->price = '12000';
-        $plan->profit = '1310';
-        $plan->total = '28820';
+        $plan->name = 'PRO';
+        $plan->price = 50;
+        $plan->profit = 120;
+        $plan->total = '2000';
+        $plan->duration = 20;
+        $plan->withdraw = '600';
+        $plan->status = 1;
+        $plan->save();
+
+        $plan = new Plan();
+        $plan->name = 'ULTIMATE';
+        $plan->price = 100;
+        $plan->profit = 270;
+        $plan->total = '5400';
         $plan->duration = '20';
-        $plan->withdraw = '100';
+        $plan->withdraw = '600';
         $plan->status = 1;
         $plan->save();
 
         $plan = new Plan();
-        $plan->name = 'DAUGE';
-        $plan->price = '25000';
-        $plan->profit = '2635';
-        $plan->total = '57970';
-        $plan->duration = '22';
-        $plan->withdraw = '100';
-        $plan->status = 1;
-        $plan->save();
-
-
-        $plan = new Plan();
-        $plan->name = 'OPAL';
-        $plan->price = '50000';
-        $plan->profit = '5150';
-        $plan->total = '118450';
-        $plan->duration = '23';
-        $plan->withdraw = '100';
+        $plan->name = 'SUPER';
+        $plan->price = 250;
+        $plan->profit = 1300;
+        $plan->total = '26000';
+        $plan->duration = '20';
+        $plan->withdraw = '600';
         $plan->status = 1;
         $plan->save();
 
         $plan = new Plan();
-        $plan->name = 'Business';
-        $plan->price = '100000';
-        $plan->profit = '10200';
-        $plan->total = '244800';
-        $plan->duration = '24';
-        $plan->withdraw = '100';
+        $plan->name = 'DIAMOND';
+        $plan->price = 500;
+        $plan->profit = 2500;
+        $plan->total = '50000';
+        $plan->duration = '20';
+        $plan->withdraw = '600';
         $plan->status = 1;
         $plan->save();
+
 
 
         $method = new Method();
