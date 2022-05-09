@@ -54,13 +54,13 @@
                 <div class="col-lg-4 padding-0">
                     <div class="service-grid p-4">
                         <div class="desc mb-12"><strong>Total Investment.</strong></div>
-                        <h4 class="title mb-18">{{ number_format($userPlan->sum('amount') - 48000, 2) }}</h4>
+                        <h4 class="title mb-18">{{ number_format($userPlan->sum('amount'), 2) }}</h4>
                     </div>
                 </div>
                 <div class="col-lg-4 padding-0">
                     <div class="service-grid p-4">
                         <div class="desc mb-12"><strong>Today Investment.</strong></div>
-                        <h4 class="title mb-18">{{ number_format($todayUserPlan->sum('amount') - 48000, 2) }}</h4>
+                        <h4 class="title mb-18">{{ number_format($todayUserPlan->sum('amount'), 2) }}</h4>
                     </div>
                 </div>
                 <div class="col-lg-4 padding-0">
