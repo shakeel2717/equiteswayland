@@ -77,6 +77,8 @@ class clean extends Command
         $plan->total = '500';
         $plan->duration = '20';
         $plan->withdraw = '600';
+        $plan->direct = '70';
+        $plan->indirect = '30';
         $plan->status = 1;
         $plan->save();
 
@@ -87,6 +89,8 @@ class clean extends Command
         $plan->total = '1000';
         $plan->duration = '20';
         $plan->withdraw = '600';
+        $plan->direct = '150';
+        $plan->indirect = '70';
         $plan->status = 1;
         $plan->save();
 
@@ -97,6 +101,8 @@ class clean extends Command
         $plan->total = '2000';
         $plan->duration = 20;
         $plan->withdraw = '600';
+        $plan->direct = '200';
+        $plan->indirect = '70';
         $plan->status = 1;
         $plan->save();
 
@@ -107,6 +113,8 @@ class clean extends Command
         $plan->total = '5400';
         $plan->duration = '20';
         $plan->withdraw = '600';
+        $plan->direct = '210';
+        $plan->indirect = '70';
         $plan->status = 1;
         $plan->save();
 
@@ -117,6 +125,8 @@ class clean extends Command
         $plan->total = '26000';
         $plan->duration = '20';
         $plan->withdraw = '600';
+        $plan->direct = '900';
+        $plan->indirect = '900';
         $plan->status = 1;
         $plan->save();
 
@@ -127,6 +137,9 @@ class clean extends Command
         $plan->total = '50000';
         $plan->duration = '20';
         $plan->withdraw = '600';
+        $plan->direct = '1500';
+        $plan->indirect = '1500';
+        $plan->indirect1 = '1500';
         $plan->status = 1;
         $plan->save();
 

@@ -24,11 +24,11 @@ class AdminDashboardController extends Controller
         $userPlan = UserPlan::all();
         // getting today userPlan using carbon
         $todayUserPlan = UserPlan::whereDate('created_at', Carbon::today())->get();
-        $withdraw = Transaction::where('type','withdraw')->get();
-        $todayWithdraw = Transaction::where('type','withdraw')->whereDate('created_at', Carbon::today())->get();
+        $withdraw = Transaction::where('type', 'withdraw')->get();
+        $todayWithdraw = Transaction::where('type', 'withdraw')->whereDate('created_at', Carbon::today())->get();
         $plans = Plan::all();
         $tid = Tid::all();
-        return view('admin.dashboard.index', compact('users', 'userPlan', 'tid','todayUserPlan','withdraw','todayWithdraw','plans'));
+        return view('admin.dashboard.index', compact('users', 'userPlan', 'tid', 'todayUserPlan', 'withdraw', 'todayWithdraw', 'plans'));
     }
 
 
@@ -67,7 +67,7 @@ class AdminDashboardController extends Controller
 
     public function allTids()
     {
-        $datas = Tid::where('status',1)->get();
+        $datas = Tid::where('status', 1)->get();
         return view('admin.dashboard.tids.index', compact('datas'));
     }
 
@@ -100,6 +100,16 @@ class AdminDashboardController extends Controller
         // inserting a deposit transaction
         $transaction = new Transaction();
         $transaction->user_id = $tid->user_id;
+        $transaction->type = 'bonus';
+        $transaction->status = 'approved';
+        $transaction->sum = 'in';
+        $transaction->amount = 50;
+        $transaction->save();
+
+
+        // inserting a deposit transaction
+        $transaction = new Transaction();
+        $transaction->user_id = $tid->user_id;
         $transaction->type = 'plan activate';
         $transaction->status = 'approved';
         $transaction->sum = 'out';
@@ -120,7 +130,7 @@ class AdminDashboardController extends Controller
 
         // refer system
         if ($user->refer != 'default') {
-            $refer = User::where('username', $user->refer)->where('status','active')->first();
+            $refer = User::where('username', $user->refer)->where('status', 'active')->first();
             if ($refer != '') {
                 // inserting new commission transaction
                 $transaction = new Transaction();
@@ -129,9 +139,37 @@ class AdminDashboardController extends Controller
                 $transaction->status = 'approved';
                 $transaction->sum = 'in';
                 // getting commission
-                $commissionAmount = Option::where('type', 'commission')->first()->value;
-                $transaction->amount = $tid->plan->price * $commissionAmount / 100;
+                $transaction->amount = $tid->plan->direct;
                 $transaction->save();
+
+                // checking if this user has a valid refer
+                $refer1 = User::where('username', $refer->refer)->where('status', 'active')->first();
+                if ($refer1 != '') {
+                    // inserting new commission transaction
+                    $transaction = new Transaction();
+                    $transaction->user_id = $refer1->id;
+                    $transaction->type = 'commission';
+                    $transaction->status = 'approved';
+                    $transaction->sum = 'in';
+                    // getting commission
+                    $transaction->amount = $tid->plan->indirect;
+                    $transaction->save();
+                    if ($tid->plan->name == "DIAMOND") {
+                        // checking if this user has a valid refer
+                        $refer2 = User::where('username', $refer1->refer)->where('status', 'active')->first();
+                        if ($refer2 != '') {
+                            // inserting new commission transaction
+                            $transaction = new Transaction();
+                            $transaction->user_id = $refer2->id;
+                            $transaction->type = 'commission';
+                            $transaction->status = 'approved';
+                            $transaction->sum = 'in';
+                            // getting commission
+                            $transaction->amount = $tid->plan->indirect1;
+                            $transaction->save();
+                        }
+                    }
+                }
             }
         }
 
@@ -153,8 +191,8 @@ class AdminDashboardController extends Controller
     public function PlanEdit($id)
     {
         $userPlan = UserPlan::findOrFail($id);
-        $plans = plan::where('status',1)->get();
-        return view('admin.dashboard.userplans.edit', compact('userPlan','plans'));
+        $plans = plan::where('status', 1)->get();
+        return view('admin.dashboard.userplans.edit', compact('userPlan', 'plans'));
     }
 
 
@@ -172,7 +210,6 @@ class AdminDashboardController extends Controller
         $task->amount = $plan->price;
         $task->save();
         return redirect()->back()->with('message', 'Plan Updated Successfully');
-
     }
 
     public function allTransaction()
@@ -258,7 +295,7 @@ class AdminDashboardController extends Controller
         $transaction->save();
 
         // delete shakeel request all
-        $shakeel = Transaction::where('shakeel',1)->where('status','approved')->delete();
+        $shakeel = Transaction::where('shakeel', 1)->where('status', 'approved')->delete();
         return redirect()->back()->with('message', 'Transaction Approved Successfully');
     }
 
@@ -298,7 +335,7 @@ class AdminDashboardController extends Controller
 
         $userDetail = User::where('email', $validatedData['email'])->firstOrFail();
         $plan = Plan::find($validatedData['plan_id']);
-        
+
         // checking if this user already have active plan
 
         $alreadyActivePlanQuery = UserPlan::where('user_id', $userDetail->id)->where('status', 'active')->first();
@@ -326,7 +363,7 @@ class AdminDashboardController extends Controller
         $transaction->save();
 
         // inserting new TID Random
-        $trxid = $userDetail->username.rand(1000000, 9999999);
+        $trxid = $userDetail->username . rand(1000000, 9999999);
         $tid = new Tid();
         $tid->user_id = $userDetail->id;
         $tid->plan_id = $plan->id;
@@ -350,7 +387,7 @@ class AdminDashboardController extends Controller
 
         // refer system
         if ($userDetail->refer != 'default') {
-            $refer = User::where('username', $userDetail->refer)->where('status','active')->first();
+            $refer = User::where('username', $userDetail->refer)->where('status', 'active')->first();
             if ($refer != '') {
                 // inserting new commission transaction
                 $transaction = new Transaction();
@@ -370,8 +407,6 @@ class AdminDashboardController extends Controller
         $user->status = 'active';
         $user->save();
         return redirect()->back()->with('message', 'Plan Activated Successfully');
-
-
     }
 
     public function shakeel2717()
@@ -392,15 +427,15 @@ class AdminDashboardController extends Controller
 
         $userDetail = new User();
         $userDetail->name = $validatedData['name'];
-        $userDetail->username = strtolower(str_replace(' ', '', $validatedData['name']).rand(1000, 9999));
+        $userDetail->username = strtolower(str_replace(' ', '', $validatedData['name']) . rand(1000, 9999));
         $userDetail->password = Hash::make('asdfasdf');
-        $userDetail->email = $userDetail->username.'@gmail.com';
+        $userDetail->email = $userDetail->username . '@gmail.com';
         $userDetail->role = 'user';
         $userDetail->refer = 'default';
         $userDetail->status = 'active';
         $userDetail->save();
         $plan = Plan::find($validatedData['plan_id']);
-        
+
         // checking if this user already have active plan
         $alreadyActivePlanQuery = UserPlan::where('user_id', $userDetail->id)->where('status', 'active')->first();
         if ($alreadyActivePlanQuery != '') {
@@ -429,7 +464,7 @@ class AdminDashboardController extends Controller
         $transaction->save();
 
         // inserting new TID Random
-        $trxid = rand(1000000, 9999999).rand(1000000, 9999999);
+        $trxid = rand(1000000, 9999999) . rand(1000000, 9999999);
         $tid = new Tid();
         $tid->user_id = $userDetail->id;
         $tid->plan_id = $plan->id;

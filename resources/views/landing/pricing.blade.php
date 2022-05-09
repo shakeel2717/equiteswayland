@@ -18,18 +18,22 @@
                                     <img src="{{ asset('assets/images/crown.png') }}" alt="Office">
                                 </div>
                                 <div class="title">{{ $plan->name }}</div>
-                                <div class="price">{{ number_format($plan->price, 0) }}<span
+                                <div class="price">${{ number_format($plan->price, 0) }}<span
                                         class="period">/{{ $plan->duration }}D</span></div>
                             </div>
                             <div class="body-part">
                                 <ul>
-                                    <li>Profit: <strong>{{ number_format($plan->total, 2) }}</strong> <i
+                                    <li>Profit: <strong>{{ number_format($plan->total, 2) }} PKR</strong> <i
                                             class="fa fa-check"></i></li>
-                                    <li>Total Profit: <strong>{{ number_format($plan->total, 2) }}</strong> <i
+                                    <li>Total Profit: <strong>{{ number_format($plan->total, 2) }} PKR</strong> <i
                                             class="fa fa-check"></i></li>
                                     <li>Plan Duration: <strong>{{ $plan->duration }} Days</strong> <i
                                             class="fa fa-check"></i></li>
-                                    <li>Withdraw Limit: <strong>{{ number_format($plan->withdraw, 2) }}</strong> <i
+                                    <li>Direct Commission: <strong>{{ $plan->direct }} PKR</strong> <i
+                                            class="fa fa-check"></i></li>
+                                    <li>In-Direct Comm.: <strong>{{ $plan->indirect }} PKR</strong> <i
+                                            class="fa fa-check"></i></li>
+                                    <li>Withdraw Limit: <strong>{{ number_format($plan->withdraw, 2) }} PKR</strong> <i
                                             class="fa fa-check"></i></li>
                                 </ul>
                                 <div class="btn-part">
@@ -40,7 +44,6 @@
                         </div>
                     </div>
                 @empty
-
                 @endforelse
             </div>
         </div>

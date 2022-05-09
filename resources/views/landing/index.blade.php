@@ -142,7 +142,10 @@
             {{-- <img class="pattern-right" src="{{ asset('assets/images/pattern/pattern5.png') }}" alt="">
             <img class="pattern-left" src="{{ asset('assets/images/pattern/pattern6.png') }}" alt=""> --}}
             <div class="row row rs-vertical-middle" style="z-index: ">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/JFLTHot7nG4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/JFLTHot7nG4"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
             </div>
         </div>
     </div>
@@ -171,6 +174,10 @@
                                     <li>Total Profit: <strong>{{ number_format($plan->total, 2) }} PKR</strong> <i
                                             class="fa fa-check"></i></li>
                                     <li>Plan Duration: <strong>{{ $plan->duration }} Days</strong> <i
+                                            class="fa fa-check"></i></li>
+                                    <li>Direct Commission: <strong>{{ $plan->direct }} PKR</strong> <i
+                                            class="fa fa-check"></i></li>
+                                    <li>In-Direct Comm.: <strong>{{ $plan->indirect }} PKR</strong> <i
                                             class="fa fa-check"></i></li>
                                     <li>Withdraw Limit: <strong>{{ number_format($plan->withdraw, 2) }} PKR</strong> <i
                                             class="fa fa-check"></i></li>
