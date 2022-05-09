@@ -51,8 +51,6 @@
                                     <ul>
                                         <li class="opening"> <em><i class="flaticon-clock"></i>Monday - Friday /
                                                 8AM - 11PM</em> </li>
-                                        <li><a href="https://wa.me/{{ env('APP_WHATSAPP') }}"><i class="fa fa-whatsapp"></i></a></li>
-                                        <li><a href="https://wa.me/{{ env('APP_WHATSAPP') }}"><i class="fa fa-facebook"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
