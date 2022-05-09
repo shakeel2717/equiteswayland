@@ -8,11 +8,12 @@
             <div class="row y-middle">
                 <div class="col-lg-5 col-md-7">
                     <div class="sec-title4 mb-30">
-                        <div class="sub-title">Grow With</div>
-                        <h2 class="title primary-color">{{ env('APP_NAME') }}</h2>
+                        <div class="sub-title text-white">Grow With</div>
+                        <h2 class="title text-white">{{ env('APP_NAME') }}</h2>
                         <div class="desc left-line-v">
                             <div class="draw-line start-draw"></div>
-                            {{ env('APP_DESC_LONG') }}
+                            <p class="text-white">{{ env('APP_DESC_LONG') }}</p>
+
                         </div>
                     </div>
                     <div class="btn-area d-flex justify-content-around">
@@ -142,7 +143,7 @@
             {{-- <img class="pattern-right" src="{{ asset('assets/images/pattern/pattern5.png') }}" alt="">
             <img class="pattern-left" src="{{ asset('assets/images/pattern/pattern6.png') }}" alt=""> --}}
             <div class="row row rs-vertical-middle" style="z-index: ">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/JFLTHot7nG4"
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/41JCpzvnn_0"
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
@@ -289,45 +290,6 @@
                 <a class="readon2" href="{{ route('register') }}">Create new Account <div
                         class="btn-arrow"></div></a>
             </div>
-        </div>
-    </div>
-    <div class="rs-achievement style1 relative pt-171 md-pt-80">
-        <div class="container">
-            <div class="row rs-vertical-middle">
-                <div class="col-lg-6 pr-0">
-                    <div class="sec-title4 mb-35">
-                        <div class="sub-title mb-6">Achievement & Registration</div>
-                        <h2 class="title">Registered Govt of Pakistan</h2>
-                        <div class="desc left-line-v">
-                            <div class="draw-line start-draw"></div>
-                            {{ env('APP_DESC_LONG') }}
-                        </div>
-                    </div>
-                    <div class="rs-counter hover-box pt-35">
-                        <div class="rs-counter-list box-item">
-                            <div class="counter-icon"><i class="glyph-icon flaticon-user-1"></i></div>
-                            <h3 class="counter-number">100</h3>
-                            <div class="counter-text">Happy Users</div>
-                        </div>
-                        <div class="rs-counter-list box-item active">
-                            <div class="counter-icon"><i class="glyph-icon flaticon-picture-1"></i></div>
-                            <h3 class="counter-number">{{ custom_number_format(200000, 2) }}</h3>
-                            <div class="counter-text">Total Investment</div>
-                        </div>
-                        <div class="rs-counter-list box-item">
-                            <div class="counter-icon"><i class="glyph-icon flaticon-best"></i></div>
-                            <h3 class="counter-number">{{ custom_number_format(1000, 0) }}</h3>
-                            <div class="counter-text">Total Withdraw</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 md-pt-50">
-                    <div class="img-part">
-                        <img src="{{ asset('assets/images/fbr.jpg') }}" alt="">
-                    </div>
-                </div>
-            </div>
-            <img class="pattern-img" src="assets/images/pattern/pattern4.png" alt="">
         </div>
     </div>
     <div class="rs-cta style1 secondary-bg2 relative pt-128 pb-128 md-pt-70 md-pb-70">
