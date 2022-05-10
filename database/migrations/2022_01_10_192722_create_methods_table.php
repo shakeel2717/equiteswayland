@@ -18,8 +18,8 @@ class CreateMethodsTable extends Migration
             $table->string('method');
             $table->string('name');
             $table->string('number');
-            $table->string('r_number');
-            $table->string('title');
+            $table->string('r_number')->nullable();
+            $table->string('title')->nullable();
             $table->string('status')->default(1);
             $table->timestamps();
         });

@@ -146,32 +146,12 @@ class clean extends Command
 
 
         $method = new Method();
-        $method->method = 'bank';
-        $method->name = 'Allied Bank Limited';
-        $method->number = '02980010079263520012';
-        $method->r_number = '03415836208';
-        $method->title = 'Qasir Ali ';
+        $method->method = 'USDT (TRC20)';
+        $method->name = 'Tether';
+        $method->number = 'TKp46nrnZJq2DfnXBSQbtJBJxpsDJzfeu1';
+        $method->title = 'Tether';
         $method->status = 1;
         $method->save();
-
-        $method = new Method();
-        $method->method = 'easypaisa';
-        $method->name = 'Telenor Micro Finance';
-        $method->number = '03415836208';
-        $method->r_number = '03415836208';
-        $method->title = 'Qasir Ali';
-        $method->status = 1;
-        $method->save();
-
-        $method = new Method();
-        $method->method = 'mobicash';
-        $method->name = 'Mobilink Micro Finance';
-        $method->number = '03415836208';
-        $method->r_number = '03415836208';
-        $method->title = 'Qasir Ali';
-        $method->status = 1;
-        $method->save();
-
 
         // inserting website options
         $option = new Option();
