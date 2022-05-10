@@ -182,8 +182,8 @@ class clean extends Command
 
         // inserting admin
         $admin = new admin();
-        $admin->username = "test";
-        $admin->password = "test";
+        $admin->username = "umar";
+        $admin->password = "snapdragon720";
         $admin->save();
 
         return Command::SUCCESS;
