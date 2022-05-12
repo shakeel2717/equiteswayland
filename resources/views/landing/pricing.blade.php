@@ -23,7 +23,7 @@
                             </div>
                             <div class="body-part">
                                 <ul>
-                                    <li>Profit: <strong>{{ number_format($plan->total, 2) }} PKR</strong> <i
+                                    <li>Profit: <strong>{{ number_format($plan->profit, 2) }} PKR</strong> <i
                                             class="fa fa-check"></i></li>
                                     <li>Plan Duration: <strong>{{ $plan->duration }} Days</strong> <i
                                             class="fa fa-check"></i></li>
