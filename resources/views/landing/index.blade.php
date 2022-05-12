@@ -156,8 +156,6 @@
                                 <ul>
                                     <li>Daily Profit: <strong>{{ number_format($plan->profit, 2) }} PKR</strong> <i
                                             class="fa fa-check"></i></li>
-                                    <li>Total Profit: <strong>{{ number_format($plan->total, 2) }} PKR</strong> <i
-                                            class="fa fa-check"></i></li>
                                     <li>Plan Duration: <strong>{{ $plan->duration }} Days</strong> <i
                                             class="fa fa-check"></i></li>
                                     <li>Direct Commission: <strong>{{ $plan->direct }} PKR</strong> <i
