@@ -78,8 +78,8 @@ function profitBlockchainAlready()
         $transaction = Transaction::where('user_id', auth()->user()->id)
             ->where('type', 'profit')
             ->whereDate('created_at', now()->toDateString())
-            ->first();
-        if ($transaction == '') {
+            ->get();
+        if ($transaction->count() < 25) {
             return true;
         } else {
             return false;

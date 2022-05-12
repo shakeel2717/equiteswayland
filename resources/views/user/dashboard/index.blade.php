@@ -116,8 +116,8 @@
                         <div class="sub-title mb-6">Refer Commission</div>
                         <h2 class="title">Refer Friend and Earn upto 18%</h2>
                         <div class="clipboard-area">
-                            <input class="from-control" id="referCommission" value="{{ route('register',['refer' => Auth::user()->username]) }}"
-                                readonly>
+                            <input class="from-control" id="referCommission"
+                                value="{{ route('register', ['refer' => Auth::user()->username]) }}" readonly>
                             <button id="referCommissionButton" class="clip-area btn btn-secondary px-3"><i
                                     class="fa fa-clipboard"></i></button>
                         </div>
@@ -155,6 +155,19 @@
                 $('#referCommission').select();
                 document.execCommand('copy');
             });
+
+
+            $("#spinStart").click(function() {
+                // spin image
+                var img = document.getElementById('spinImage');
+                var degrees = 0;
+                var timer = setInterval(function() {
+                    degrees += 5;
+                    img.style.transform = 'rotate(' + degrees + 'deg)';
+                }, 10);
+
+            });
+
         });
     </script>
 @endsection

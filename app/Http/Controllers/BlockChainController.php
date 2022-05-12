@@ -11,18 +11,19 @@ class BlockChainController extends Controller
     public function index()
     {
         $plan = UserPlan::where('user_id', auth()->user()->id)->firstOrFail();
+        $Perprofit = $plan->plan->profit / 25;
         // checking if this transaction alredy added
         $transaction = Transaction::where('user_id', auth()->user()->id)
-            ->where('amount', $plan->plan->profit)
+            ->where('amount', $Perprofit)
             ->where('type', 'profit')
             ->where('sum', 'in')
             ->whereDate('created_at', now()->toDateString())
-            ->first();
-        if ($transaction == '') {
+            ->get();
+        if ($transaction->count() < 25) {
             // adding a profit transaction
             $transaction = new Transaction();
             $transaction->user_id = auth()->user()->id;
-            $transaction->amount = $plan->plan->profit;
+            $transaction->amount = $Perprofit;
             $transaction->type = 'profit';
             $transaction->status = 'approved';
             $transaction->sum = 'in';
@@ -31,6 +32,5 @@ class BlockChainController extends Controller
         } else {
             return redirect()->back()->withErrors('Profit Already Added');
         }
-        
     }
 }

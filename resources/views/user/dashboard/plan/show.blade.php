@@ -67,12 +67,13 @@
                         <h2 class="title pb-30">
                             Transaction ID
                         </h2>
-                        <p class="margin-0">Please send <strong>{{ number_format($plan->price, 2) }}/-</strong> to
-                            our Official Bank Accounts. After Payment successfully sent, please don't forget to provide the
-                            TID
-                            below to instantly activate your Plan.</p>
+                        <p class="margin-0">
+                            Please send me <strong>${{ number_format($plan->price, 2) }}/-</strong> to our official
+                            binance accounts after payment successfully sent please don't
+                            forget to provide the TID below the instant active your plan
+                        </p>
                         <hr>
-                        <form id="tidForm" action="{{ route('user.plan.update',['plan' => $plan->id]) }}" method="POST">
+                        <form id="tidForm" action="{{ route('user.plan.update', ['plan' => $plan->id]) }}" method="POST">
                             @method('PUT')
                             @csrf
                             <div class="col-lg-12 mb-30">
@@ -84,7 +85,8 @@
                             </div>
                         </form>
                         <div class="btn-part">
-                            <a type="submit" class="readon consultant discover" onclick="document.getElementById('tidForm').submit();">Activate Plan</a>
+                            <a type="submit" class="readon consultant discover"
+                                onclick="document.getElementById('tidForm').submit();">Activate Plan</a>
                         </div>
                     </div>
                 </div>
