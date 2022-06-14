@@ -221,7 +221,7 @@ class AdminDashboardController extends Controller
     public function adminplans()
     {
         $datas = Plan::get();
-        return view('admin.dashboard.adminplans.index', compact('datas'));
+        return view('admin.dashboard.AdminPlans.index', compact('datas'));
     }
 
     public function methods()

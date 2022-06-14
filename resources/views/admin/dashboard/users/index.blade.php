@@ -30,6 +30,8 @@
                                 <th scope="col">Withdraws</th>
                                 <th scope="col">Email</th>
                                 <th scope="col">Status</th>
+                                <th scope="col">Country</th>
+                                <th scope="col">Phone</th>
                                 <th scope="col">Join Date</th>
                                 <th scope="col">Action</th>
                             </tr>
@@ -47,6 +49,8 @@
                                     <td>{{ number_format(totalApproveWithdraw($data->id), 2) }}/-</td>
                                     <td>{{ $data->email }}</td>
                                     <td class="text-uppercase">{{ $data->status }}</td>
+                                    <td class="text-uppercase">{{ $data->country }}</td>
+                                    <td class="text-uppercase">{{ $data->phone }}</td>
                                     <td>{{ $data->created_at->diffForHumans() }}</td>
                                     <td>
                                         @if ($data->status == 'active' || $data->status == 'pending')
@@ -62,7 +66,7 @@
                             @endforelse
                         </tbody>
                     </table>
-                    
+
                 </div>
             </div>
         </div>

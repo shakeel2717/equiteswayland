@@ -31,6 +31,14 @@
                                                 placeholder="E-Mail" required="">
                                         </div>
                                         <div class="form-group">
+                                            <input class="from-control" type="text" id="country" name="country"
+                                                placeholder="Country" required="">
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="from-control" type="text" id="phone" name="phone"
+                                                placeholder="Phone Number" required="">
+                                        </div>
+                                        <div class="form-group">
                                             <input class="from-control" type="password" id="password" name="password"
                                                 placeholder="Password" required="">
                                         </div>

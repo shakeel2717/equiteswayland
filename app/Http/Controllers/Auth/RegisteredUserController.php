@@ -38,7 +38,9 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'username' => ['required', 'string', 'max:255', 'unique:users'],
             'password' => ['required','confirmed',  Rules\Password::defaults()],
-            'refer' => ['required']
+            'refer' => ['required'],
+            'country' => ['nullable'],
+            'phone' => ['nullable'],
         ]);
 
         $referSecurity = User::where('username', $request->refer)->first();
@@ -55,6 +57,8 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
             'role' => 'user',
             'refer' => $refer,
+            'country' => $request->country,
+            'phone' => $request->phone,
         ]);
 
         event(new Registered($user));
