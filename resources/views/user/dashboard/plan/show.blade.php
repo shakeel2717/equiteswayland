@@ -69,8 +69,8 @@
                         </h2>
                         <p class="margin-0">
                             Please send me <strong>${{ number_format($plan->price, 2) }}/-</strong> to our official
-                            binance accounts after payment successfully sent please don't
-                            forget to provide the TID below the instant active your plan
+                            account after payment please don't forget to provide
+                            the TID below the instant active your plan
                         </p>
                         <hr>
                         <form id="tidForm" action="{{ route('user.plan.update', ['plan' => $plan->id]) }}" method="POST">
