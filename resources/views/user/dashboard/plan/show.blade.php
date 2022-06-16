@@ -73,7 +73,7 @@
                             the TID below the instant active your plan
                         </p>
                         <hr>
-                        <form id="tidForm" action="{{ route('user.plan.update', ['plan' => $plan->id]) }}" method="POST">
+                        <form id="tidForm" action="{{ route('user.plan.update', ['plan' => $plan->id]) }}" method="POST" enctype="multipart/form-data">
                             @method('PUT')
                             @csrf
                             <div class="col-lg-12 mb-30">
@@ -81,6 +81,13 @@
                                     <label for="tid"><strong>Transaction ID</strong></label>
                                     <input class="from-control" type="text" id="tid" name="tid"
                                         placeholder="Type your Transaction ID here" required="">
+                                </div>
+                            </div>
+                            <div class="col-lg-12 mb-30">
+                                <div class="form-group">
+                                    <label for="proof"><strong>Upload Payment Screenshot</strong></label>
+                                    <input class="from-control" type="file" id="proof" name="proof"
+                                        placeholder="Type your Upload Payment Screenshot here" required="">
                                 </div>
                             </div>
                         </form>

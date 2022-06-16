@@ -73,19 +73,43 @@ class PlanController extends Controller
     public function update(Request $request, Plan $plan)
     {
         $validatedData = $request->validate([
-            'tid' => 'required|min:1|max:255|unique:tids'
+            'tid' => 'nullable|min:1|max:255|unique:tids',
+            'proof' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
-        
+
+        if (isset($validatedData['proof'])) {
+            // get picture
+            $profile = $request->file('proof');
+            $profile_name = auth()->user()->username . time() . '.' . $profile->getClientOriginalExtension();
+            $profile->move(public_path('assets/proof'), $profile_name);
+
+            // checking if tid is null
+            if($validatedData['tid'] == null){
+                $tidInput = "No Tid Provided";
+            } else {
+                $tidInput = $validatedData['tid'];
+            }
+        } else {
+            if ($validatedData['tid'] == null){
+                return redirect()->back()->withErrors(['TID or Payment Proof required, Please try again.']);
+            } else {
+                $profile_name = null;
+                $tidInput = $validatedData['tid'];
+            }
+        }
+
+
         // inserting this user tid into the database
         $tid = new Tid();
         $tid->user_id = auth()->user()->id;
         $tid->plan_id = $plan->id;
         $tid->amount = $plan->price;
-        $tid->tid = $validatedData['tid'];
+        $tid->tid = $tidInput;
+        $tid->proof = $profile_name;
         $tid->status = 0;
         $tid->save();
         return redirect()->route('user.dashboard')->with('message','Tid has been added successfully');
-        
+
 
     }
 

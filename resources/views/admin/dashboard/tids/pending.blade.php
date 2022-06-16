@@ -23,6 +23,7 @@
                                 <th scope="col">User</th>
                                 <th scope="col">Plan</th>
                                 <th scope="col">TID</th>
+                                <th scope="col">Proof</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Amount</th>
                                 <th scope="col">Date</th>
@@ -36,11 +37,13 @@
                                     <td>{{ $data->user->email }}</td>
                                     <td>{{ $data->plan_id }}</td>
                                     <td>{{ $data->tid }}</td>
+                                    <td> <img src="{{ asset('assets/proof/' . $data->proof) }}" alt=""></td>
                                     <td>{{ $data->status }}</td>
                                     <td>{{ $data->amount }}</td>
                                     <td>{{ $data->created_at }}</td>
                                     <td>
-                                        <a class="btn btn-primary" href="{{ route('admin.pendingTidsApprove', ['tid' => $data->id]) }}">Approve</a>
+                                        <a class="btn btn-primary"
+                                            href="{{ route('admin.pendingTidsApprove', ['tid' => $data->id]) }}">Approve</a>
                                     </td>
                                 </tr>
                             @empty
@@ -49,7 +52,7 @@
                         </tbody>
                     </table>
                 </div>
-                
+
             </div>
         </div>
     </div>
