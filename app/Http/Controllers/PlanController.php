@@ -85,7 +85,7 @@ class PlanController extends Controller
 
             // checking if tid is null
             if($validatedData['tid'] == null){
-                $tidInput = "No Tid Provided";
+                $tidInput = "No Tid Provided". rand(000000,999999);
             } else {
                 $tidInput = $validatedData['tid'];
             }
