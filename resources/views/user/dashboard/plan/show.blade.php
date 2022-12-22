@@ -22,6 +22,11 @@
                                             <div id="collapse{{ $loop->iteration }}" class="collapse"
                                                 data-bs-parent="#accordion" style="">
                                                 <div class="card-body">
+                                                    <div class="my-4">
+                                                        <div class="qr mx-auto text-center">
+                                                            <img src="{{ asset('wallet.jpeg) }}" alt="Wallet Qr Code" class="text-center mx-auto">
+                                                        </div>
+                                                    </div>
                                                     <table class="table table-striped">
                                                         <thead>
                                                             <tr>
